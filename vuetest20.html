@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style>
+      .active {
+        width: 100px;
+        height: 100px;
+        background: green;
+      }
+      .text-danger {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="static"
+        v-bind:class="{'text-danger': hasError,active: isActive }"
+      ></div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          isActive: true,
+          hasError: true
+        }
+      });
+    </script>
+  </body>
+</html>

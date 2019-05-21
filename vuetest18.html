@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <p style="font-size: 25px;">计数器：{{ counter }}</p>
+      <button @click="counter++" style="font-size:25px;">点我</button>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          counter: 1
+        }
+      });
+      vm.$watch("counter", function(nValue, oValue) {
+        console.log("旧值为：" + oValue + "新值为：" + nValue);
+      });
+    </script>
+  </body>
+</html>

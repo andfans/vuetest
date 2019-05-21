@@ -7,11 +7,18 @@
     <style></style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div v-bind:style="styleObject  ">菜鸟教程</div>
+    </div>
     <script>
       var vm = new Vue({
         el: "#app",
-        data: {}
+        data: {
+          styleObject: {
+            color: "green",
+            fontSize: "30px"
+          }
+        }
       });
     </script>
   </body>

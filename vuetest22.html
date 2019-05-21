@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style>
+      .base {
+        width: 100px;
+        height: 100px;
+      }
+      .active {
+        background: green;
+      }
+      .text-danger {
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:class="classObject"></div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          isActive: true,
+          error: {
+            value: true,
+            type: "fatal"
+          }
+        },
+        computed: {
+          classObject: function() {
+            return {
+              base: true,
+              active: this.isActive && !this.error.value,
+              "text-danger": this.error.value && this.error.type == "fatal"
+            };
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
