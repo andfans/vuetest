@@ -8,23 +8,24 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      {{ message | capitalize }}
     </div>
     <script>
-      new Vue({
+      console.log("head");
+      var vm = new Vue({
         el: "#app",
         data: {
-          message: "RUNOOB!"
+          message: "runoobww"
         },
-        methods: {
-          reverseMessage: function() {
-            this.message = this.message
-              .split("")
-              .reverse()
-              .join("");
+        filters: {
+          capitalize: function(value) {
+            if (!value) return "";
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
           }
         }
       });
+      console.log("here....");
     </script>
   </body>
 </html>

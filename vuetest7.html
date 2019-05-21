@@ -4,11 +4,20 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <title>VueTest</title>
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script>
+      var i = 0;
+      function print() {
+        console.log(++i);
+      }
+    </script>
     <style></style>
   </head>
   <body>
     <div id="app">
-      <pre><a v-bind:href="url">菜鸟教程</a></pre>
+      <pre><a :href="url">菜鸟教程</a></pre>
+      <button @click="print()" style="height:30px;width:60px">
+        按钮
+      </button>
     </div>
     <script>
       new Vue({

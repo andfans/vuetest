@@ -8,22 +8,13 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <div v-if="Math.random() > 0.5">Sorry</div>
+      <div v-else>Not sorry</div>
     </div>
     <script>
       new Vue({
         el: "#app",
-        data: {
-          message: "RUNOOB!"
-        },
-        methods: {
-          reverseMessage: function() {
-            this.message = this.message
-              .split("")
-              .reverse()
-              .join("");
-          }
-        }
+        data: {}
       });
     </script>
   </body>

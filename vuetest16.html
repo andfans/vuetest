@@ -8,17 +8,18 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <p>原始字符串:{{ message }}</p>
+      <p>原始字符串:{{ reversedMessage }}</p>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          message: "RUNOOB!"
+          message: "Runoob!"
         },
-        methods: {
-          reverseMessage: function() {
-            this.message = this.message
+        computed: {
+          reversedMessage: function() {
+            return this.message
               .split("")
               .reverse()
               .join("");

@@ -8,21 +8,17 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <ol>
+        <li v-for="site in sites">
+          {{ site.name }}
+        </li>
+      </ol>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          message: "RUNOOB!"
-        },
-        methods: {
-          reverseMessage: function() {
-            this.message = this.message
-              .split("")
-              .reverse()
-              .join("");
-          }
+          sites: [{ name: "Runoob" }, { name: "Google" }, { name: "Taobao" }]
         }
       });
     </script>

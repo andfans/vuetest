@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(value,key,index) in object">
+          {{ index }}.{{ key }}.{{
+            value
+              .split("")
+              .reverse()
+              .join("")
+          }}
+        </li>
+        <li v-for="n in 10">
+          {{ n }}
+        </li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          object: {
+            name: "菜鸟教程",
+            url: "http://www.runoob.com",
+            slogan: "学的不仅是技术，更是梦想！"
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
