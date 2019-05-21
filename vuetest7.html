@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <pre><a v-bind:href="url">菜鸟教程</a></pre>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          url: "http://www.runoob.com"
+        }
+      });
+    </script>
+  </body>
+</html>

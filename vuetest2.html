@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="vue_det">
+      <h1>site:{{ site }}</h1>
+      <h1>url:{{ url }}</h1>
+      <h1>{{ details() }}</h1>
+    </div>
+    <script>
+      var data = { site: "菜鸟教程", url: "www.runoob.com", alexa: "1000" };
+      var vm = new Vue({
+        el: "#vue_det",
+        data: data,
+        methods: {
+          details: function() {
+            return this.site + " - 学的不仅是技术，更是梦想！";
+          }
+        }
+      });
+      console.log(data.site === vm.site);
+      vm.site = "站点地址";
+      console.log("data.site:");
+      console.log(data.site);
+      data.alexa = 1234;
+      console.log(vm.alexa);
+    </script>
+  </body>
+</html>
