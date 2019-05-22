@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app" v-runoob:hello.a.b="message"></div>
+    <script>
+      Vue.directive("runoob", {
+        bind: function(el, binding, vnode) {
+          var s = JSON.stringify;
+          el.innerHTML =
+            "name:" +
+            s(binding.name) +
+            "<br>" +
+            "value: " +
+            s(binding.value) +
+            "<br>" +
+            "expression: " +
+            s(binding.expression) +
+            "<br>" +
+            "argument: " +
+            s(binding.arg) +
+            "<br>" +
+            "modifiers: " +
+            s(binding.modifiers) +
+            "<br>" +
+            "vnode keys: " +
+            Object.keys(vnode).join(", ");
+        }
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          message: "菜鸟教程！"
+        }
+      });
+    </script>
+  </body>
+</html>

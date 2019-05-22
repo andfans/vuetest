@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <p>input自动获取焦点</p>
+      <input v-focus />
+    </div>
+    <script>
+      Vue.directive("focus", {
+        bind: function() {
+          console.log("bind");
+        },
+        inserted: function(el) {
+          console.log("waowao");
+          el.focus();
+        }
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {}
+      });
+    </script>
+  </body>
+</html>

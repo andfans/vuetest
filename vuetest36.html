@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <ol>
+        <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+      </ol>
+    </div>
+    <script>
+      Vue.component("todo-item", {
+        props: ["todo"],
+        template: "<li>{{ todo.text }}</li>"
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          sites: [{ text: "Runoob" }, { text: "Google" }, { text: "Taobao" }]
+        }
+      });
+    </script>
+  </body>
+</html>

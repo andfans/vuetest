@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <input v-model="parentMSg" /><br />
+        <child v-bind:message="parentMSg"></child>
+      </div>
+    </div>
+    <script>
+      Vue.component("child", {
+        props: ["message"],
+        template: "<span>{{message}}</span>"
+      });
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          parentMSg: "父组件内容"
+        }
+      });
+    </script>
+  </body>
+</html>

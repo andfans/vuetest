@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <runoob></runoob>
+    </div>
+    <script>
+      var Child = {
+        template: "<h1>自定义组件！</h1>"
+      };
+      Vue.component("runoob", {
+        template: "<h1>自定义组件！</h1>"
+      });
+      var vm = new Vue({
+        el: "#app",
+        components: {
+          runoob: Child
+        }
+      });
+    </script>
+  </body>
+</html>
