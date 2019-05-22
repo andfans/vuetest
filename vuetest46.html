@@ -4,16 +4,21 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <title>VueTest</title>
     <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
     <style></style>
   </head>
   <body>
     <div id="app"></div>
     <script>
-      var vm = new Vue({
-        el: "#app",
-        data: {}
+      var mixin = {
+        created: function() {
+          document.write("混入调用" + "<br>");
+        }
+      };
+      new Vue({
+        mixins: [mixin],
+        created: function() {
+          document.write("组件调用" + "<br>");
+        }
       });
     </script>
   </body>

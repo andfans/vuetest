@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="button" @click="get()" value="点我异步获取数据(Get)" />
+    </div>
+    <script>
+      window.onload = function() {
+        var vm = new Vue({
+          el: "#app",
+          data: { msg: "Hello World!" },
+          methods: {
+            get: function() {
+              this.$http
+                .get("https://www.runoob.com/try/ajax/ajax_info.txt")
+                .then(
+                  function(res) {
+                    document.write(res.body);
+                  },
+                  function() {
+                    console.log("请求失败处理");
+                  }
+                );
+            }
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

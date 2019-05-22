@@ -9,11 +9,23 @@
     <style></style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <p style="font-size:25px;">计数器: {{ products.id }}</p>
+      <button @click="products.id++" style="font-size:25px;">点我</button>
+    </div>
     <script>
+      var myproduct = { id: 1, name: "book", price: "20.00" };
       var vm = new Vue({
         el: "#app",
-        data: {}
+        data: {
+          counter: 1,
+          products: myproduct
+        }
+      });
+      vm.products.qty = "1";
+      console.log(vm);
+      vm.$watch("products.id", function(nval, oval) {
+        console.log("oval:" + oval + " " + "nval:" + nval);
       });
     </script>
   </body>

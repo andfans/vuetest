@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>VueTest</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <style>
+      .fade1-enter-active,
+      .fade1-leave-active {
+        transition: opacity 2s;
+      }
+      .fade1-enter,
+      .fade1-leave-to {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="databinding">
+      <button v-on:click="show = !show">点我</button>
+      <transition name="fade1">
+        <p v-show="show" v-bind:style="styleobj">动画实例</p>
+      </transition>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#databinding",
+        data: {
+          show: true,
+          styleobj: {
+            fontSize: "30px",
+            color: "red"
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
